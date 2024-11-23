@@ -185,7 +185,7 @@ ${SOURCE}/gmp-${GMP_VERSION}/configure \
   --prefix=${PREFIX}                   \
   --host=${TARGET}                     \
   --enable-shared                     \
-  --disable-static                      \
+  --enable-static                      \
   --enable-fat
 make -j`nproc`
 make install
@@ -196,7 +196,7 @@ ${SOURCE}/mpfr-${MPFR_VERSION}/configure \
   --prefix=${PREFIX}                     \
   --host=${TARGET}                       \
   --enable-shared                        \
-  --disable-static                       \
+  --enable-static                       \
   --with-gmp-build=${BUILD}/gmp
 make -j`nproc`
 make install
@@ -207,7 +207,7 @@ ${SOURCE}/mpc-${MPC_VERSION}/configure \
   --prefix=${PREFIX}                   \
   --host=${TARGET}                     \
   --enable-shared                      \
-  --disable-static                     \
+  --enable-static                     \
   --with-{gmp,mpfr}=${PREFIX}
 make -j`nproc`
 make install
@@ -218,7 +218,7 @@ ${SOURCE}/isl-${ISL_VERSION}/configure \
   --prefix=${PREFIX}                   \
   --host=${TARGET}                     \
   --enable-shared                      \
-  --disable-static                     \
+  --enable-static                     \
   --with-gmp-prefix=${PREFIX}
 make -j`nproc`
 make install
@@ -229,7 +229,7 @@ ${SOURCE}/expat-${EXPAT_VERSION}/configure \
   --prefix=${PREFIX}                       \
   --host=${TARGET}                         \
   --enable-shared                         \
-  --disable-static                          \
+  --enable-static                          \
   --without-examples                       \
   --without-tests
 make -j`nproc`
@@ -285,7 +285,7 @@ ${SOURCE}/gcc-${GCC_VERSION}/configure \
   --disable-multilib                   \
   --disable-werror                     \
   --enable-shared                     \
-  --disable-static                      \
+  --enable-static                      \
   --enable-lto                         \
   --enable-languages=c,c++,lto,fortran        \
   --enable-libgomp                     \
@@ -310,7 +310,7 @@ ${SOURCE}/mingw-w64-v${MINGW_VERSION}/mingw-w64-libraries/winpthreads/configure 
   --host=${TARGET}                                                              \
   --disable-dependency-tracking                                                 \
   --enable-shared                                                              \
-  --disable-static
+  --enable-static
 make -j`nproc`
 make install
 popd
