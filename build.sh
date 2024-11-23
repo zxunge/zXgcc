@@ -120,7 +120,7 @@ ${SOURCE}/gcc-${GCC_VERSION}/configure \
   --disable-multilib                   \
   --disable-werror                     \
   --disable-libgomp                    \
-  --enable-languages=c,c++ ,fortran           \
+  --enable-languages=c,c++,fortran     \
   --enable-threads=posix               \
   --enable-checking=release            \
   --enable-large-address-aware         \
@@ -172,7 +172,7 @@ cmake ${SOURCE}/zstd-${ZSTD_VERSION}/build/cmake \
   -DCMAKE_C_COMPILER=${TARGET}-gcc               \
   -DCMAKE_CXX_COMPILER=${TARGET}-g++             \
   -DZSTD_BUILD_STATIC=OFF                        \
-  -DZSTD_BUILD_SHARED=ON                        \
+  -DZSTD_BUILD_SHARED=ON                         \
   -DZSTD_BUILD_PROGRAMS=OFF                      \
   -DZSTD_BUILD_CONTRIB=OFF                       \
   -DZSTD_BUILD_TESTS=OFF
@@ -195,8 +195,8 @@ mkdir -p ${BUILD}/mpfr && pushd ${BUILD}/mpfr
 ${SOURCE}/mpfr-${MPFR_VERSION}/configure \
   --prefix=${PREFIX}                     \
   --host=${TARGET}                       \
-  --enable-shared                       \
-  --disable-static                        \
+  --enable-shared                        \
+  --disable-static                       \
   --with-gmp-build=${BUILD}/gmp
 make -j`nproc`
 make install
@@ -206,8 +206,8 @@ mkdir -p ${BUILD}/mpc && pushd ${BUILD}/mpc
 ${SOURCE}/mpc-${MPC_VERSION}/configure \
   --prefix=${PREFIX}                   \
   --host=${TARGET}                     \
-  --enable-shared                     \
-  --disable-static                      \
+  --enable-shared                      \
+  --disable-static                     \
   --with-{gmp,mpfr}=${PREFIX}
 make -j`nproc`
 make install
@@ -217,8 +217,8 @@ mkdir -p ${BUILD}/isl && pushd ${BUILD}/isl
 ${SOURCE}/isl-${ISL_VERSION}/configure \
   --prefix=${PREFIX}                   \
   --host=${TARGET}                     \
-  --enable-shared                     \
-  --disable-static                      \
+  --enable-shared                      \
+  --disable-static                     \
   --with-gmp-prefix=${PREFIX}
 make -j`nproc`
 make install
