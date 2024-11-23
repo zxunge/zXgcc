@@ -1,0 +1,44 @@
+name: build-zXgcc
+
+on:
+  push:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        arch: [i686, x86_64]
+
+    outputs:
+      GCC_VERSION: ${{ steps.build.outputs.GCC_VERSION }}
+      MINGW_VERSION: ${{ steps.build.outputs.MINGW_VERSION }}
+      GDB_VERSION: ${{ steps.build.outputs.GDB_VERSION }}
+      MAKE_VERSION: ${{ steps.build.outputs.MAKE_VERSION }}
+
+    steps:
+
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - name: install dependencies
+        run: |
+          sudo apt-get install --no-install-recommends -y \
+            ca-certificates \
+            libgmp-dev      \
+            libmpc-dev      \
+            libmpfr-dev     \
+            libisl-dev      \
+            xz-utils        \
+            texinfo         \
+            patch           \
+            p7zip           \
+            cmake           \
+            make            \
+            curl            \
+            m4              \
+            gcc     
+
+      - name: build
+        id: build
+        run: ./build.sh ${{ matrix.arch }}
