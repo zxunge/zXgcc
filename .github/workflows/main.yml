@@ -37,7 +37,8 @@ jobs:
             make            \
             curl            \
             m4              \
-            gcc     
+            gcc             \
+            gfortran
 
       - name: build
         id: build
