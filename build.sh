@@ -218,8 +218,9 @@ ${SOURCE}/isl-${ISL_VERSION}/configure \
   --prefix=${PREFIX}                   \
   --host=${TARGET}                     \
   --enable-shared                      \
-  --enable-static                     \
-  --with-gmp-prefix=${PREFIX}
+  --enable-static                      \
+  --with-gmp-prefix=${PREFIX}          \
+  LDFLAGS=-no-undefined
 make -j`nproc`
 make install
 popd
