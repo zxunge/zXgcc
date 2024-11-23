@@ -185,7 +185,7 @@ ${SOURCE}/gmp-${GMP_VERSION}/configure \
   --prefix=${PREFIX}                   \
   --host=${TARGET}                     \
   --enable-shared                     \
-  --enable-static                      \
+  --disable-static                      \
   --enable-fat
 make -j`nproc`
 make install
@@ -196,7 +196,7 @@ ${SOURCE}/mpfr-${MPFR_VERSION}/configure \
   --prefix=${PREFIX}                     \
   --host=${TARGET}                       \
   --enable-shared                        \
-  --enable-static                       \
+  --disable-static                       \
   --with-gmp-build=${BUILD}/gmp
 make -j`nproc`
 make install
@@ -207,7 +207,7 @@ ${SOURCE}/mpc-${MPC_VERSION}/configure \
   --prefix=${PREFIX}                   \
   --host=${TARGET}                     \
   --enable-shared                      \
-  --enable-static                     \
+  --disable-static                     \
   --with-{gmp,mpfr}=${PREFIX}
 make -j`nproc`
 make install
@@ -218,7 +218,7 @@ ${SOURCE}/isl-${ISL_VERSION}/configure \
   --prefix=${PREFIX}                   \
   --host=${TARGET}                     \
   --enable-shared                      \
-  --enable-static                      \
+  --disable-static                      \
   --with-gmp-prefix=${PREFIX}          \
   LDFLAGS=-no-undefined
 make -j`nproc`
@@ -230,7 +230,7 @@ ${SOURCE}/expat-${EXPAT_VERSION}/configure \
   --prefix=${PREFIX}                       \
   --host=${TARGET}                         \
   --enable-shared                         \
-  --enable-static                          \
+  --disable-static                          \
   --without-examples                       \
   --without-tests
 make -j`nproc`
