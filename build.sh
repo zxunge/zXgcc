@@ -217,10 +217,9 @@ mkdir -p ${BUILD}/isl && pushd ${BUILD}/isl
 ${SOURCE}/isl-${ISL_VERSION}/configure \
   --prefix=${PREFIX}                   \
   --host=${TARGET}                     \
-  --enable-shared                      \
-  --disable-static                      \
-  --with-gmp-prefix=${PREFIX}          \
-  LDFLAGS=-Wl,--no-undefined
+  --disable-shared                      \
+  --enable-static                      \
+  --with-gmp-prefix=${PREFIX}          
 make -j`nproc`
 make install
 popd
