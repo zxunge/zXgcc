@@ -43,3 +43,10 @@ jobs:
       - name: build
         id: build
         run: ./build.sh ${{ matrix.arch }}
+
+      - name: upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: zXgcc-${{ steps.build.outputs.GCC_VERSION }}-mingw-w64-${{ steps.build.outputs.MINGW_VERSION }}-${{ matrix.arch }}
+          path: zXgcc-${{ steps.build.outputs.GCC_VERSION }}-mingw-w64-${{ steps.build.outputs.MINGW_VERSION }}-${{ matrix.arch }}.7z
+          if-no-files-found: error
