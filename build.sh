@@ -284,10 +284,10 @@ ${SOURCE}/gcc-${GCC_VERSION}/configure \
   --enable-nls                        \
   --disable-multilib                   \
   --disable-werror                     \
-  --enable-shared                     \
+  --enable-shared                      \
   --enable-static                      \
   --enable-lto                         \
-  --enable-languages=c,c++,lto,fortran        \
+  --enable-languages=c,c++,lto         \
   --enable-libgomp                     \
   --enable-threads=posix               \
   --enable-checking=release            \
