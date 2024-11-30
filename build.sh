@@ -287,7 +287,7 @@ ${SOURCE}/gcc-${GCC_VERSION}/configure \
   --enable-shared                      \
   --enable-static                      \
   --enable-lto                         \
-  --enable-languages=c,c++,lto,fortran         \
+  --enable-languages=c,c++,lto         \
   --enable-libgomp                     \
   --enable-threads=posix               \
   --enable-checking=release            \
@@ -298,7 +298,6 @@ ${SOURCE}/gcc-${GCC_VERSION}/configure \
   --disable-win32-registry             \
   --with-tune=intel                    \
   ${EXTRA_GCC_ARGS}                    \
-  CPPFLAGS=-D_GNU_SOURCE               \
   --with-{gmp,mpfr,mpc,isl,zstd}=${PREFIX}
 make -j`nproc`
 make install
