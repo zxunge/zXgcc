@@ -321,7 +321,7 @@ ${SOURCE}/gdb-${GDB_VERSION}/configure \
   --host=${TARGET}                     \
   --enable-64-bit-bfd                  \
   --disable-werror                     \
-  --disable-source-highlight           \
+  --enable-source-highlight            \
   --with-libexpat-prefix=${PREFIX}     \
   --with-{gmp,mpfr,mpc,isl,zstd}=${PREFIX}
 make -j`nproc`
