@@ -184,8 +184,8 @@ mkdir -p ${BUILD}/gmp && pushd ${BUILD}/gmp
 ${SOURCE}/gmp-${GMP_VERSION}/configure \
   --prefix=${PREFIX}                   \
   --host=${TARGET}                     \
-  --enable-shared                     \
-  --disable-static                      \
+  --enable-shared                      \
+  --disable-static                     \
   --enable-fat
 make -j`nproc`
 make install
@@ -217,7 +217,7 @@ mkdir -p ${BUILD}/isl && pushd ${BUILD}/isl
 ${SOURCE}/isl-${ISL_VERSION}/configure \
   --prefix=${PREFIX}                   \
   --host=${TARGET}                     \
-  --disable-shared                      \
+  --disable-shared                     \
   --enable-static                      \
   --with-gmp-prefix=${PREFIX}          
 make -j`nproc`
@@ -228,8 +228,8 @@ mkdir -p ${BUILD}/expat && pushd ${BUILD}/expat
 ${SOURCE}/expat-${EXPAT_VERSION}/configure \
   --prefix=${PREFIX}                       \
   --host=${TARGET}                         \
-  --enable-shared                         \
-  --disable-static                          \
+  --enable-shared                          \
+  --disable-static                         \
   --without-examples                       \
   --without-tests
 make -j`nproc`
@@ -245,7 +245,7 @@ ${SOURCE}/binutils-${BINUTILS_VERSION}/configure \
   --enable-lto                                   \
   --enable-plugins                               \
   --enable-64-bit-bfd                            \
-  --enable-nls                                  \
+  --enable-nls                                   \
   --disable-multilib                             \
   --disable-werror                               \
   --with-{gmp,mpfr,mpc,isl}=${PREFIX}
@@ -281,7 +281,7 @@ ${SOURCE}/gcc-${GCC_VERSION}/configure \
   --target=${TARGET}                   \
   --host=${TARGET}                     \
   --disable-dependency-tracking        \
-  --enable-nls                        \
+  --enable-nls                         \
   --disable-multilib                   \
   --disable-werror                     \
   --enable-shared                      \
@@ -309,7 +309,7 @@ ${SOURCE}/mingw-w64-v${MINGW_VERSION}/mingw-w64-libraries/winpthreads/configure 
   --with-sysroot=${FINAL}/${TARGET}                                             \
   --host=${TARGET}                                                              \
   --disable-dependency-tracking                                                 \
-  --enable-shared                                                              \
+  --enable-shared                                                               \
   --enable-static
 make -j`nproc`
 make install
@@ -321,7 +321,7 @@ ${SOURCE}/gdb-${GDB_VERSION}/configure \
   --host=${TARGET}                     \
   --enable-64-bit-bfd                  \
   --disable-werror                     \
-  --enable-source-highlight            \
+  --disable-source-highlight           \
   --with-libexpat-prefix=${PREFIX}     \
   --with-{gmp,mpfr,mpc,isl,zstd}=${PREFIX}
 make -j`nproc`
@@ -332,7 +332,7 @@ mkdir -p ${BUILD}/make && pushd ${BUILD}/make
 ${SOURCE}/make-${MAKE_VERSION}/configure \
   --prefix=${FINAL}                      \
   --host=${TARGET}                       \
-  --enable-nls                          \
+  --enable-nls                           \
   --disable-rpath                        \
   --enable-case-insensitive-file-system
 make -j`nproc`
