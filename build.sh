@@ -310,7 +310,7 @@ ${SOURCE}/mingw-w64-v${MINGW_VERSION}/mingw-w64-libraries/winpthreads/configure 
   --host=${TARGET}                                                              \
   --disable-dependency-tracking                                                 \
   --enable-shared                                                               \
-  --enable-static
+  --disable-static
 make -j`nproc`
 make install
 popd
